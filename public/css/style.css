@@ -38,3 +38,10 @@ body{
   padding-top: 10px;
   float: left;
 }
+.display{
+  text-align: center;
+  text-decoration: none;
+  color: red;
+  font-weight: bold;
+  font-family: Georgia;
+}

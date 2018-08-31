@@ -57,7 +57,8 @@ module.exports = function (storedUsers){
 
    function greetCounter(){
      //console.log(differentNames)
-     return Object.keys(differentNames).length;
+     let lengthOfNames = Object.keys(differentNames).length;
+     return lengthOfNames;
    }
 
    function getNames(){
@@ -74,10 +75,12 @@ module.exports = function (storedUsers){
    }
 
    function reset(){
-     let differentNames = {};
-     let personName = "";
-     let countThem = 0;
-     let language = "";
+     personName = "";
+     language = "";
+     differentNames = {};
+     lengthOfNames = 0;
+
+
    }
 
    return{
@@ -93,5 +96,4 @@ module.exports = function (storedUsers){
      setName,
      reset
    }
-
  }

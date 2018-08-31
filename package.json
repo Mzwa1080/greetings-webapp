@@ -10,7 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
     "express": "^4.16.3",
+    "express-flash": "0.0.2",
     "express-handlebars": "^3.0.0",
     "flash": "^1.1.0",
     "mocha": "^5.2.0",
