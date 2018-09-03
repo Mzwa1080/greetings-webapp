@@ -1,54 +1,60 @@
 <!DOCTYPE html>
 <html>
   <body>
-      <div class="container">
+      <div class="col s12 m2 container z-depth-5">
           <div class="row">
             <div class="col-12">
-              <h1 class="HeaderName"> GREETINGS  PAGE</h1>
+              <h3 class="HeaderName center"> GREETINGS  PAGE</h3>
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-12">
+      <div class="row">
+        <div class="">
 
-              <form class="col-10" action="/greetings" method="post">
-                <div class="col-7">
-                    <small class="">Type in your name:</small>
-                    <input class="textArea" type="text" name="textInput">
-                </div>
-
-                <div class="col-4">
-                  <input class="EnterBtn" type="submit" name="enterBtn" value="Greet">
-                </div>
-
-                <div class="row radio">
-                    <label class="col-4">
-                      <input class=" language" type="radio" name="language" value="English" checked>English
-                    </label>
-
-                    <label class="col-4">
-                      <input class=" language" type="radio" name="language" value="Isixhosa">Isixhosa
-                    </label>
-
-                  <label class="col-4">
-                      <input class="language" type="radio" name="language" value="Afrikaans" >Afrikaans
-                  </label>
-                </div>
-
-                <div class="col-2 reset">
-                  <input class="" type="submit" name="reset" value="reset" href= "/reset">
-                </div>
-              </form>
-
-            <div class="col-2 counter">
-                <em class="">Counter: <span class="counter" name ="count" href="">{{count}}</span></em>
+          <form class="col 12 s12 m12 center" action="/greetings" method="post">
+            <div class="">
+                <input class="textArea center" type="text" name="textInput" placeholder="Enter your name">
             </div>
-          </div>
+
+
+
+            <div class="row radio center ">
+              <p class="col 3">
+                <label>
+                  <input name="language" type="radio" class="language" value="English" />
+                  <span>English</span>
+                </label>
+              </p>
+
+              <p class="col 3">
+                <label>
+                  <input name="language" type="radio" class="language" value="Isixhosa" />
+                  <span>Isixhosa</span>
+                </label>
+              </p>
+
+              <p class="col 3">
+                <label>
+                  <input name="language" type="radio" class="language" value="Afrikaans" />
+                  <span>Afrikaans</span>
+                </label>
+              </p>
+
+            <div class="col 3 reset">
+              <button class="btn waves-effect deep-orange darken-3 EnterBtn" type="submit" name="enterBtn" value="">Enter</button>
+              <button class="btn waves-effect deep-orange darken-3 EnterBtn" type="submit" name="reset" value="" href= "/reset">Reset</button>
+            </div>
+          </form>
+
+        <div class=" counter">
+            <em class="">Counter: <span class="counter" name ="count" href="">{{count}}</span></em>
+        </div>
+      </div>
       </div>
 
           <div class="row">
               <div class="col-12">
-                  <p class="display" href="/display" name = "display"> {{displayNames}} </p>
+                  <h6 class="display center" href="/display" name = "display"> {{displayNames}} </h6>
               </div>
 
               <div class="col-12">
@@ -56,7 +62,14 @@
               </div>
           </div>
 
+
+
       </div>
+      <div class="footer-copyright blue-grey darken-2">
+          <div class=" center container">
+                    <h6 class=""> © 2018 Mzwamadoda Louw </h6>
+            </div>
+        </div>
 
   </body>
 </html>
