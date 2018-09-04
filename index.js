@@ -69,9 +69,10 @@ app.get('/displayNames', function(req,res){
 		res.redirect('/');
 });
 
-app.get('/reset', function(req, res){
-		greetingsInstance.reset();
-		res.redirect('/');
+app.get('/reset', async function(req, res){
+		var reset = await greetingsInstance.reset();
+		console.log(reset);
+		res.render('/', {reset});
 });
 
 app.get('/flash', function (req, res) {

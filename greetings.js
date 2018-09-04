@@ -33,18 +33,15 @@ module.exports = function (pool){
      return results.rowCount;
    }
 
-   // function reset(){
-   //   personName = "";
-   //   language = "";
-   //   differentNames = {};
-   //   lengthOfNames = 0;
-   //
-   //
-   // }
+   async function reset(){
+     let reset = await pool.query("delete * from users");
+     console.log(reset);
+     return reset.rowCount;
+   }
 
    return{
      greet,
      greetCounter,
-     // reset
+     reset
    }
  }
