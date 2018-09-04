@@ -11,7 +11,6 @@ module.exports = function (storedUsers){
         differentNames[personName]=0;
      }
    }
-
    function lang(value){
      language = value;
    }

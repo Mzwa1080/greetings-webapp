@@ -1,8 +1,8 @@
 let express = require('express');
 let expressHandlebars = require('express-handlebars');
 let bodyParser = require('body-parser');
-let flash = require('express-flash');
-let session = require('express-session');
+// let flash = require('express-flash');
+// let session = require('express-session');
 
 let greetings = require('./greetings')
 let greetingsInstance = greetings();
@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 //for public folder #Static_Resource!!!
 app.use(express.static('public'));
 //---------about to use this flash-----//
-app.use()
+// app.use()
 
 app.engine('handlebars', expressHandlebars({defaultLayout: 'links'}));
 app.set('view engine', 'handlebars');
