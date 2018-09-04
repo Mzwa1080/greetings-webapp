@@ -1,32 +1,16 @@
-module.exports = function (storedUsers){
-   var differentNames = {};
-   var personName = "";
-   var language = "";
-   var countThem = 0;
+module.exports = function (pool){
 
-//Function that'll store differentNames & prints out names only
-   function name(value){
-     if(differentNames[value] === undefined){
-        personName = value;
-        differentNames[personName]=0;
-     }
-   }
-   function lang(value){
-     language = value;
-   }
+//Function that'll store differentNames & prints out name only
 
-   function setName(name){
-     personName = name;
-   }
 
-   function greet(personName, language){
+   async function greet(personName, language){
 
      if(personName !== "" && language !== undefined){
-
-       if(differentNames[personName] === undefined){
-          personName = personName;
-          differentNames[personName]=0;
+      var foundUsers = await pool.query("select * from users where name=$1", [personName])
+       if(foundUsers.rowCount === 0){
+          await pool.query("insert into users(name, counter) values($1, 0)", [personName]);
        }
+       await pool.query("update users set counter=counter+1 where name=$1", [personName]);
 
        if(language === "English"){
          return "Good day, " + personName;
@@ -46,53 +30,28 @@ module.exports = function (storedUsers){
 
   }
 
-   function forTheCounter(){
-      countThem++;
-   }
 
-   function continueCounting(){
-      return countThem;
-   }
 
-   function greetCounter(){
+   async function greetCounter(){
      //console.log(differentNames)
-     let lengthOfNames = Object.keys(differentNames).length;
-     return lengthOfNames;
+     let results = await pool.query("select * from users");
+     return results.rowCount;
    }
 
-   function getNames(){
-     return name;
-   }
-
-   function getLang(){
-     return language;
-
-   }
-
-   function getListName(){
-     return personName;
-   }
-
-   function reset(){
-     personName = "";
-     language = "";
-     differentNames = {};
-     lengthOfNames = 0;
 
 
-   }
+   // function reset(){
+   //   personName = "";
+   //   language = "";
+   //   differentNames = {};
+   //   lengthOfNames = 0;
+   //
+   //
+   // }
 
    return{
-     name,
-     lang,
      greet,
      greetCounter,
-     getNames,
-     getLang,
-     getListName,
-     forTheCounter,
-     continueCounting,
-     setName,
-     reset
+     // reset
    }
  }
