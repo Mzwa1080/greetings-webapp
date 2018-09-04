@@ -16,8 +16,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //for public folder #Static_Resource!!!
 app.use(express.static('public'));
-//---------about to use this flash-----//
-// app.use()
 
 let PORT = process.env.PORT || 3030;
 

@@ -1,8 +1,5 @@
 module.exports = function (pool){
 
-//Function that'll store differentNames & prints out name only
-
-
    async function greet(personName, language){
 
      if(personName !== "" && language !== undefined){
@@ -30,15 +27,11 @@ module.exports = function (pool){
 
   }
 
-
-
    async function greetCounter(){
      //console.log(differentNames)
      let results = await pool.query("select * from users");
      return results.rowCount;
    }
-
-
 
    // function reset(){
    //   personName = "";
