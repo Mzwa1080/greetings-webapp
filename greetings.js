@@ -3,11 +3,11 @@ module.exports = function (pool){
    async function greet(personName, language){
 
      if(personName !== "" && language !== undefined){
-      var foundUsers = await pool.query("select * from users where name=$1", [personName.toUpperCase()])
+      var foundUsers = await pool.query("select * from users where name=$1, language=$2", [personName.toUpperCase(), language])
        if(foundUsers.rows.length === 0){
-          await pool.query("insert into users(name, counter) values($1, 0)", [personName.toUpperCase()]);
+          await pool.query("insert into users(name, counter,language) values($1, 0,$2)", [personName.toUpperCase(), language]);
        }
-       await pool.query("update users set counter=counter+1 where name=$1", [personName.toUpperCase() ]);
+       await pool.query("update users set counter=counter+1 where name=$1, language=$2", [personName.toUpperCase(), language ]);
 
        if(language === "English"){
          return "Good day, " + personName.toUpperCase();

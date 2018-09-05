@@ -1,14 +1,21 @@
 let express = require('express');
 let expressHandlebars = require('express-handlebars');
 let bodyParser = require('body-parser');
-// let flash = require('express-flash');
-// let session = require('express-session');
+let flash = require('express-flash');
+let session = require('express-session');
 const pg = require("pg");
 const Pool = pg.Pool;
 
 
-let greetings = require('./greetings')
+let greetings = require('./greetings');
+
 let app = express();
+
+app.use(session({
+    secret: 'keyboard cat5 run all 0v3r',
+    resave: false,
+    saveUninitialized: true
+}));
 //----------FOR SENDING DATA AS A FORM TO THE SERVER!!! -------
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -24,9 +31,8 @@ if (process.env.DATABASE_URL) {
   useSSL = true;
 }
 
-const connectionString =
-  process.env.DATABASE_URL ||
-  "postgresql://coder:coder123@localhost:5432/greetings_webapp";
+const connectionString = process.env.DATABASE_URL || 
+"postgresql://coder:coder123@localhost:5432/greetings_webapp";
 
 const pool = new Pool({
   connectionString,
@@ -50,6 +56,12 @@ app.post('/greetings', async function(req, res){
 // -----GO TO HTML ----
     let text  = req.body.textInput;
 		let radio = req.body.language;
+    //
+    // if(text === "" || text === undefined){
+    //   req.flash("info", "Please enter a name")
+    // } else if(radio ===undefined){
+    //   req.flash("info", "Please select a language")
+    // }
 
 		var results = {
 			greeting: await greetingsInstance.greet(text, radio),
