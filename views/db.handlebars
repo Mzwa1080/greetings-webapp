@@ -1,13 +1,20 @@
 <title>Greeted names</title>
 <div class="container">
   <h4 class="center">Greeted Names</h4>
-  <table class="row">
-      <tr>
-        <th>Name</th>
-        <th>Counter</th>
-      </tr>
 
-      {{#each users}}
+  <div class="row left">
+    <form class="" action="/greetings" method="post">
+      <button class="btn waves-effect green accent-4">Home<i class="fa fa-home"></i></button>
+    </form>
+  </div>
+
+  <table class="row">
+    <tr>
+      <th>Name</th>
+      <th>Counter</th>
+    </tr>
+
+    {{#each users}}
       <tr>
         <td>{{name}}</td>
         <td>{{counter}}</td>
@@ -15,9 +22,5 @@
     {{/each}}
   </table>
 
-  <div class="row right">
-<form class="" action="/greetings" method="post">
-  <button class="btn waves-effect green accent-4">Home<i class="fa fa-home"></i></button>
-</form>
-  </div>
+
 </div>
