@@ -64,14 +64,14 @@ app.get("/counter", function(req,res){
 		res.redirect('/');
 });
 
-app.get('/displayNames', function(req,res){
-	 	greetingsInstance.getListName();
-		res.redirect('/');
+app.get('/greetings/database', async function(req,res){
+let users = await greetingsInstance.returnUsers();
+		res.render('db', {users});
 });
 
 app.get('/reset', async function(req, res){
-	 await	greetingsInstance.reset()
-  
+	 await greetingsInstance.reset()
+
 		res.redirect('/');
 });
 

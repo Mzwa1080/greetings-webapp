@@ -4,7 +4,7 @@ module.exports = function (pool){
 
      if(personName !== "" && language !== undefined){
       var foundUsers = await pool.query("select * from users where name=$1", [personName])
-       if(foundUsers.rowCount === 0){
+       if(foundUsers.rows.length === 0){
           await pool.query("insert into users(name, counter) values($1, 0)", [personName]);
        }
        await pool.query("update users set counter=counter+1 where name=$1", [personName]);
@@ -29,8 +29,12 @@ module.exports = function (pool){
 
    async function greetCounter(){
      //console.log(differentNames)
-     let results = await pool.query("select * from users");
-     return results.rowCount;
+     let results = await pool.query("select count(*) from users");
+     return results.rows[0].count;
+   }
+   async function returnUsers(){
+     let users = await pool.query("select * from users");
+     return users.rows;
    }
 
    async function reset(){
@@ -41,6 +45,7 @@ module.exports = function (pool){
    return{
      greet,
      greetCounter,
-     reset
+     reset,
+     returnUsers
    }
  }

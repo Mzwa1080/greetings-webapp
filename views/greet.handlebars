@@ -1,68 +1,81 @@
 <!DOCTYPE html>
 <html>
-  <body class="cyan lighten-1">
-      <div class="col s12 m2 container z-depth-5 white ">
-          <div class="row">
-            <div class="col-12">
-              <h3 class="HeaderName center"> GREETINGS  PAGE</h3>
-            </div>
+
+<body class="cyan lighten-1">
+  <div class="col s12 m2 container z-depth-5 white ">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="HeaderName center"> GREETINGS  PAGE</h3>
+      </div>
+    </div>
+
+    <div class="row">
+        <form class="col 12 s12 m12 center" action="/greetings" method="post">
+          <div class="">
+
+            <i class="material-icons prefix">account_circle</i>
+            <input class="textArea center" type="text" name="textInput" placeholder="Enter your name">
           </div>
 
-      <div class="row">
-          <form class="col 10 s12 m12 center" action="/greetings" method="post">
-            <div class="">
 
-              <i class="material-icons prefix">account_circle</i>
-                <input class="textArea center" type="text" name="textInput" placeholder="Enter your name">
-            </div>
 
-            <div class="row radio center ">
-              <p class="col 3">
-                <label>
+          <div class="row radio center ">
+            <p class="col 3">
+              <label>
                   <input name="language" type="radio" class="language" value="English" />
                   <span>English</span>
                 </label>
-              </p>
+            </p>
 
-              <p class="col 3">
-                <label>
+            <p class="col 3">
+              <label>
                   <input name="language" type="radio" class="language" value="Isixhosa" />
                   <span>Isixhosa</span>
                 </label>
-              </p>
+            </p>
 
-              <p class="col 3">
-                <label>
+            <p class="col 3">
+              <label>
                   <input name="language" type="radio" class="language" value="Afrikaans" />
                   <span>Afrikaans</span>
                 </label>
-              </p>
+            </p>
 
             <div class="col 3 reset">
               <button class="btn waves-effect green accent-4 EnterBtn" type="submit" name="enterBtn" value="">Greet</button>
-              <em class="">Counter: <span class="counter " name ="count" href="">{{count}}</span></em>
+              <em class="">Counter: <span class="counter" name ="count" href="">{{count}}</span></em>
             </div>
-          </form>
+
+            <div class="col 3">
+              <a href="/greetings/database">Greeted names</a>
+            </div>
+        </form>
       </div>
-       <div class=" col 12 s12 m12 center">
-        <a href="/reset"><button class="btn waves-effect deep-orange darken-3 EnterBtn col 10 s12 m12 center" type="submit" name="reset" value="">Reset</button></a>
 
-       </div>
-
-          <div class="row">
-              <div class="col-12">
-                  <h6 class="display center" href="/display" name = "display"> {{greeting}} </h6>
-              </div>
-          </div>
-
-
+      <div class="col 12 s12 m12 center">
+        <a href="/reset"><button class="btn waves-effect deep-orange darken-3 EnterBtn col 12 s12 m12 center" type="submit" name="reset" value="">Reset</button></a>
 
       </div>
-      <div class="footer-copyright blue-grey darken-2">
-          <div class=" center container">
-                    <h6 class=""> © 2018 Mzwamadoda Louw </h6>
-            </div>
+
+      <div class="row">
+        <div class="col-12">
+          <h6 class="display center" href="/display" name="display"> {{greeting}} </h6>
         </div>
-</div>
-  </body>
+
+        <div class="col-12">
+          <span href="/flash" name="flash">{{message.info}}</span>
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="footer-copyright blue-grey darken-2">
+      <div class=" center container">
+        <h6 class=""> © 2018 Mzwamadoda Louw </h6>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

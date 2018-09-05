@@ -1,0 +1,19 @@
+<title>Greeted names</title>
+<div class="container">
+  <h4>Greeted Names</h4>
+  <table class="col 6">
+      <tr>
+        <!-- <th>Id</th> -->
+        <th>Name</th>
+        <th>Counter</th>
+      </tr>
+
+      {{#each users}}
+      <tr>
+        <!-- <td>{{id}}</td> -->
+        <td>{{name}}</td>
+        <td>{{counter}}</td>
+      </tr>
+    {{/each}}
+  </table>
+</div>
