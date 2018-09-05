@@ -59,10 +59,6 @@ app.post('/greetings', async function(req, res){
     res.render('greet', results);
 });
 
-app.get("/counter", function(req,res){
-		greetingsInstance.greetCounter();
-		res.redirect('/');
-});
 
 app.get('/greetings/database', async function(req,res){
 let users = await greetingsInstance.returnUsers();

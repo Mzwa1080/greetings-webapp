@@ -3,22 +3,22 @@ module.exports = function (pool){
    async function greet(personName, language){
 
      if(personName !== "" && language !== undefined){
-      var foundUsers = await pool.query("select * from users where name=$1", [personName])
+      var foundUsers = await pool.query("select * from users where name=$1", [personName.toUpperCase()])
        if(foundUsers.rows.length === 0){
-          await pool.query("insert into users(name, counter) values($1, 0)", [personName]);
+          await pool.query("insert into users(name, counter) values($1, 0)", [personName.toUpperCase()]);
        }
-       await pool.query("update users set counter=counter+1 where name=$1", [personName]);
+       await pool.query("update users set counter=counter+1 where name=$1", [personName.toUpperCase() ]);
 
        if(language === "English"){
-         return "Good day, " + personName;
+         return "Good day, " + personName.toUpperCase();
        }
 
        else if(language == "Isixhosa"){
-         return "Molo, " + personName;
+         return "Molo, " + personName.toUpperCase();
        }
 
        else if(language == "Afrikaans"){
-          return "Goeie dag, " + personName;
+          return "Goeie dag, " + personName.toUpperCase();
        }
      }
      else {
@@ -28,7 +28,6 @@ module.exports = function (pool){
   }
 
    async function greetCounter(){
-     //console.log(differentNames)
      let results = await pool.query("select count(*) from users");
      return results.rows[0].count;
    }

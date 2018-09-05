@@ -12,15 +12,23 @@
     <tr>
       <th>Name</th>
       <th>Counter</th>
+      <th>Language</th>
     </tr>
 
     {{#each users}}
       <tr>
         <td>{{name}}</td>
         <td>{{counter}}</td>
+        <td>{{language}}</td>
       </tr>
     {{/each}}
   </table>
 
 
+
+</div>
+<div class="row">
+  <div class="col 12 s12 m12 left">
+    <a href="/reset"><button class="btn waves-effect deep-orange darken-3 EnterBtn center" type="submit" name="reset" value="">Reset</button></a>
+  </div>
 </div>
