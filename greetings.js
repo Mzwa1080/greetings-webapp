@@ -34,8 +34,7 @@ module.exports = function (pool){
    }
 
    async function reset(){
-     let reset = await pool.query("delete * from users");
-     console.log(reset);
+     let reset = await pool.query("delete from users");
      return reset.rowCount;
    }
 

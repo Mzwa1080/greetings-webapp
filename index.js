@@ -70,15 +70,11 @@ app.get('/displayNames', function(req,res){
 });
 
 app.get('/reset', async function(req, res){
-		var reset = await greetingsInstance.reset();
-		console.log(reset);
-		res.render('/', {reset});
+	 await	greetingsInstance.reset()
+  
+		res.redirect('/');
 });
 
-app.get('/flash', function (req, res) {
-    req.flash('info', 'Please enter a valid name/select a language!');
-    res.redirect('/');
-});
 
 // let PORT = process.env.PORT || 3030;
 
