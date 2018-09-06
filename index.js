@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 //for public folder #Static_Resource!!!
 app.use(express.static('public'));
 
-let PORT = process.env.PORT || 3080;
+
 
 let useSSL = false;
 if (process.env.DATABASE_URL) {
@@ -59,7 +59,7 @@ app.post('/greetings', async function(req, res){
 
     if(text == "" || text == undefined){
       req.flash("info", "Please enter your name!");
-    } else if(radio == undefined || !radio){
+    } else if(!radio){
       req.flash("info", "Please select a language!");
     }
 
@@ -84,7 +84,7 @@ app.get('/reset', async function(req, res){
 
 
 // let PORT = process.env.PORT || 3030;
-
+let PORT = process.env.PORT || 3080;
 app.listen(PORT, function(){
   	console.log('App starting on port', PORT);
 });
