@@ -22,5 +22,13 @@
     "pg": "^7.4.3"
   },
   "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mzwa1080/greetings-webapp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mzwa1080/greetings-webapp/issues"
+  },
+  "homepage": "https://github.com/Mzwa1080/greetings-webapp#readme",
   "description": ""
 }

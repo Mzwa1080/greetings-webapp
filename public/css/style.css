@@ -1,47 +1,11 @@
-body{
-  background: #ffdfcb;
-}
-.container{
-  background: white;
-  height: 100%;
-  font-family: Georgia;
-}
-.HeaderName{
-  text-align: center;
-}
-.textArea{
-  text-align: center;
-  width: 40%;
-  float: right;
-}
 
-.EnterBtn{
-  text-align: center;
-  width:40%;
-}
-
-
-.hi{
-  text-align: center;
-}
-.radio{
-  padding-top: 20px;
-  float: left;
-  width: 100%;
-  text-align:  center;
-}
-.counter{
-  text-align: left;
+.errorMessage{
   padding-top: 10px;
-}
-.reset{
-  padding-top: 10px;
-  float: left;
-}
-.display{
-  text-align: center;
-  text-decoration: none;
   color: red;
   font-weight: bold;
-  font-family: Georgia;
+  font-size: 20px;
+
 }
+/* .container{
+  /* width: 95%; */
+  /* height: 800px; */
