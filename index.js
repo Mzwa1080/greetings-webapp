@@ -6,7 +6,6 @@ let session = require('express-session');
 const pg = require("pg");
 const Pool = pg.Pool;
 
-
 let greetings = require('./greetings');
 
 let app = express();
@@ -16,6 +15,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
+
 app.use(flash());
 //----------FOR SENDING DATA AS A FORM TO THE SERVER!!! -------
 // parse application/x-www-form-urlencoded
@@ -24,8 +24,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //for public folder #Static_Resource!!!
 app.use(express.static('public'));
-
-
 
 let useSSL = false;
 if (process.env.DATABASE_URL) {
@@ -81,7 +79,6 @@ app.get('/reset', async function(req, res){
 
 		res.render('db');
 });
-
 
 // let PORT = process.env.PORT || 3030;
 let PORT = process.env.PORT || 3080;
