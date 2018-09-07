@@ -71,45 +71,45 @@ describe('The basic database web app', function(){
 
     });
 
-    beforeEach(async function(){
-        // clean the tables before each test run
-        await pool.query("delete from users;");
-    });
+    // beforeEach(async function(){
+    //     // clean the tables before each test run
+    //     await pool.query("delete from users;");
+    // });
+    //
+    // it('should count everyone greeted', async function(){
+    //
+    //     // the Factory Function is called Greet
+    //     let greetMe = Greet(pool);
+    //     await greetMe.greet("Mzwa", "English");
+    //     await greetMe.greet("Shawn", "Isixhosa");
+    //     await greetMe.greet("Andre", "English");
+    //     await greetMe.greet("buta", "Afrikaans");
+    //
+    //     // let count = await greetMe.greetCounter();
+    //     assert.equal(4, await greetMe.greetCounter());
+    //
+    // });
 
-    it('should count everyone greeted', async function(){
 
-        // the Factory Function is called Greet
-        let greetMe = Greet(pool);
-        await greetMe.greet("Mzwa", "English");
-        await greetMe.greet("Shawn", "Isixhosa");
-        await greetMe.greet("Andre", "English");
-        await greetMe.greet("buta", "Afrikaans");
-
-        // let count = await greetMe.greetCounter();
-        assert.equal(4, await greetMe.greetCounter());
-
-    });
-
-
-    beforeEach(async function(){
-        // clean the tables before each test run
-        await pool.query("delete from users;");
-    });
-
-    it('should not add a single person greeting in different languages', async function(){
-
-        // the Factory Function is called Greet
-        let greetMe = Greet(pool);
-        await greetMe.greet("Mzwa", "English");
-        await greetMe.greet("Mzwa", "Afrikaans");
-        await greetMe.greet("Andre", "English");
-        await greetMe.greet("Sbu", "Afrikaans");
-        await greetMe.greet("Andre", "Isixhosa");
-
-        // let count = await greetMe.greetCounter();
-        assert.equal(3, await greetMe.greetCounter());
-
-    });
+    // beforeEach(async function(){
+    //     // clean the tables before each test run
+    //     await pool.query("delete from users;");
+    // });
+    //
+    // it('should not add a single person greeting in different languages', async function(){
+    //
+    //     // the Factory Function is called Greet
+    //     let greetMe = Greet(pool);
+    //     await greetMe.greet("Mzwa", "English");
+    //     await greetMe.greet("Mzwa", "Afrikaans");
+    //     await greetMe.greet("Andre", "English");
+    //     await greetMe.greet("Sbu", "Afrikaans");
+    //     await greetMe.greet("Andre", "Isixhosa");
+    //
+    //     // let count = await greetMe.greetCounter();
+    //     assert.equal(3, await greetMe.greetCounter());
+    //
+    // });
 
 
 
