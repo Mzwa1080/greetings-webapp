@@ -4,7 +4,7 @@ const pg = require("pg");
 const Pool = pg.Pool;
 
 // we are using a special test database for the tests
-const connectionString = process.env.DATABASE_URL || 'postgresql://coder:coder123@localhost:5432/greetings_webapp';
+const connectionString = process.env.DATABASE_URL || 'postgresql://coder:coder123@localhost:5432/greet_test';
 
 const pool = new Pool({
     connectionString
@@ -71,47 +71,46 @@ describe('The basic database web app', function(){
 
     });
 
-    // beforeEach(async function(){
-    //     // clean the tables before each test run
-    //     await pool.query("delete from users;");
-    // });
-    //
-    // it('should count everyone greeted', async function(){
-    //
-    //     // the Factory Function is called Greet
-    //     let greetMe = Greet(pool);
-    //     await greetMe.greet("Mzwa", "English");
-    //     await greetMe.greet("Shawn", "Isixhosa");
-    //     await greetMe.greet("Andre", "English");
-    //     await greetMe.greet("buta", "Afrikaans");
-    //
-    //     // let count = await greetMe.greetCounter();
-    //     assert.equal(4, await greetMe.greetCounter());
-    //
-    // });
+    beforeEach(async function(){
+        // clean the tables before each test run
+        await pool.query("delete from users;");
+    });
 
+    it('should count everyone greeted', async function(){
 
+        // the Factory Function is called Greet
+        let greetMe = Greet(pool);
+        await greetMe.greet("Mzwa", "English");
+        await greetMe.greet("Shawn", "Isixhosa");
+        await greetMe.greet("Andre", "English");
+        await greetMe.greet("buta", "Afrikaans");
 
+        console.log(await greetMe.greet("Mzwa", "English"));
+        console.log(await greetMe.greetCounter());
+        // let count = await greetMe.greetCounter();
+        assert.equal(4, await greetMe.greetCounter());
 
-    // beforeEach(async function(){
-    //     // clean the tables before each test run
-    //     await pool.query("delete from users;");
-    // });
-    //
-    // it('should not add a single person greeting in different languages', async function(){
-    //
-    //     // the Factory Function is called Greet
-    //     let greetMe = Greet(pool);
-    //     await greetMe.greet("Mzwa", "English");
-    //     await greetMe.greet("Mzwa", "Afrikaans");
-    //     await greetMe.greet("Andre", "English");
-    //     await greetMe.greet("Sbu", "Afrikaans");
-    //     await greetMe.greet("Andre", "Isixhosa");
-    //
-    //     // let count = await greetMe.greetCounter();
-    //     assert.equal(3, await greetMe.greetCounter());
-    //
-    // });
+    });
+
+    beforeEach(async function(){
+        // clean the tables before each test run
+        await pool.query("delete from users;");
+    });
+
+    it('should not add a single person greeting in different languages', async function(){
+
+        // the Factory Function is called Greet
+        let greetMe = Greet(pool);
+        await greetMe.greet("Mzwa", "English");
+        await greetMe.greet("Mzwa", "Afrikaans");
+        await greetMe.greet("Andre", "English");
+        await greetMe.greet("Sbu", "Afrikaans");
+        await greetMe.greet("Andre", "Isixhosa");
+
+        // let count = await greetMe.greetCounter();
+        assert.equal(3, await greetMe.greetCounter());
+
+    });
 
 
 
