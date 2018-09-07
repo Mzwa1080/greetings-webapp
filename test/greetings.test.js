@@ -12,10 +12,10 @@ const pool = new Pool({
 
 describe('The basic database web app', function(){
 
-    beforeEach(async function(){
-        // clean the tables before each test run
-        await pool.query("delete from users;");
-    });
+    // beforeEach(async function(){
+    //     // clean the tables before each test run
+    //     await pool.query("delete from users;");
+    // });
 
     it('should pass if there\'s no one greeted', async function(){
 
@@ -28,7 +28,7 @@ describe('The basic database web app', function(){
 
     beforeEach(async function(){
         // clean the tables before each test run
-        await pool.query("delete from users;");
+        await pool.query('delete from users');
     });
 
     it('should count 1 person who is greeted in Isixhosa', async function(){
@@ -44,7 +44,7 @@ describe('The basic database web app', function(){
 
     beforeEach(async function(){
         // clean the tables before each test run
-        await pool.query("delete from users;");
+        await pool.query('delete from users');
     });
 
     it('should count 1 person who is greeted in English', async function(){
@@ -59,7 +59,7 @@ describe('The basic database web app', function(){
 
     beforeEach(async function(){
         // clean the tables before each test run
-        await pool.query("delete from users;");
+        await pool.query('delete from users');
     });
 
     it('should GREET the person in a selected language', async function(){
@@ -73,7 +73,7 @@ describe('The basic database web app', function(){
 
     beforeEach(async function(){
         // clean the tables before each test run
-        await pool.query("delete from users;");
+        await pool.query('delete from users');
     });
 
     it('should count everyone greeted', async function(){
@@ -94,7 +94,7 @@ describe('The basic database web app', function(){
 
     beforeEach(async function(){
         // clean the tables before each test run
-        await pool.query("delete from users;");
+        await pool.query('delete from users');
     });
 
     it('should not add a single person greeting in different languages', async function(){
