@@ -30,5 +30,8 @@
     "url": "https://github.com/Mzwa1080/greetings-webapp/issues"
   },
   "homepage": "https://github.com/Mzwa1080/greetings-webapp#readme",
+  "directories": {
+    "test": "test"
+  },
   "description": ""
 }
