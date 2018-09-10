@@ -78,8 +78,7 @@ app.get('/counter/:user_name',async function(req, res){
   let name = req.params.user_name;
   let person = await greetingsInstance.users(name);
   let display = person[0].counter;
-  // console.log(name)
-  // console.log(display);;
+  
   res.render('counter',{name, display});
 })
 
