@@ -1,7 +1,6 @@
 module.exports = function (pool){
 
    async function greet(personName, language){
-
      if(personName !== "" && language !== undefined){
       var foundUsers = await pool.query("select * from users where name=$1", [personName.toUpperCase()]);
        if(foundUsers.rows.length === 0){ //---IF AKUKHONTO   kwiROW!   FAKA    EZIZINTO!!!---
@@ -22,7 +21,6 @@ module.exports = function (pool){
        }
      }
   }
-  
 
    async function greetCounter(){
      let results = await pool.query("select count(*) from users");

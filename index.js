@@ -38,7 +38,6 @@ const pool = new Pool({
   ssl: useSSL
 });
 
-
 let greetingsInstance = greetings(pool);
 
 app.engine('handlebars', expressHandlebars({defaultLayout: 'links'}));
