@@ -22,6 +22,7 @@ module.exports = function (pool){
        }
      }
   }
+  
 
    async function greetCounter(){
      let results = await pool.query("select count(*) from users");

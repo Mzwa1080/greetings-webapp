@@ -38,6 +38,7 @@ const pool = new Pool({
   ssl: useSSL
 });
 
+
 let greetingsInstance = greetings(pool);
 
 app.engine('handlebars', expressHandlebars({defaultLayout: 'links'}));
@@ -74,11 +75,11 @@ let users = await greetingsInstance.returnUsers();
 		res.render('db', {users});
 });
 
-app.get('/counter/:user_name',async function(req, res){
+app.get('/counter/:user_name', async function(req, res){
   let name = req.params.user_name;
   let person = await greetingsInstance.users(name);
   let display = person[0].counter;
-  
+
   res.render('counter',{name, display});
 })
 
