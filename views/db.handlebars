@@ -1,37 +1,51 @@
-<title>Greeted names</title>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<body class="indigo lighten-4">
+  <title>Greeted names</title>
 
+  <div class="container">
+    <h4 class="center">Greeted Names</h4>
 
-<div class="container">
-  <h4 class="center">Greeted Names</h4>
+    <div class="row left">
+      <form class="" action="/greetings" method="post">
+        <button class="btn waves-effect green accent-4"><i class="fas fa-home"></i> </button>
+      </form>
+    </div>
 
-  <div class="row left">
-    <form class="" action="/greetings" method="post">
-      <button class="btn waves-effect green accent-4"><i class="fas fa-home"></i> </button>
-    </form>
-  </div>
-
-  <table class="row">
-    <tr>
-      <th>Name</th>
-      <th>Counter</th>
-      <!-- <th>Language</th> -->
-    </tr>
-
-    {{#each users}}
-      <tr>
-        <td>{{name}}</td>
-        <td>{{counter}}</td>
-        <!-- <td>{{language}}</td> -->
+    <table class="row">
+      <tr class=" col 6 center">
+        <th>Name</th>
       </tr>
-    {{/each}}
-  </table>
+
+      {{#each users}}
+        <tr class="center">
+          <td><a href="/counter/{{name}}" class="">{{name}}</a></td>
+        </tr>
+      {{/each}}
+    </table>
 
 
 
-</div>
-<div class="row">
-  <div class="col 12 s12 m12 left">
-    <a href="/reset"><button class="btn waves-effect deep-orange darken-3 EnterBtn fixed" type="submit" name="reset" value=""><i class="far fa-trash-alt"></i></button></a>
   </div>
-</div>
+  <div class="row">
+    <div class="col 12 s12 m12 left">
+      <a class="waves-effect waves-light btn  modal-trigger" href="#You_will_reset"><i class="far fa-trash-alt"></i></a>
+
+      <!-- Modal Structure -->
+      <div id="You_will_reset" class="modal red">
+        <div class="modal-content">
+          <h4>Clear Greeted Names</h4>
+          <p>Are you sure that you want to greet the entered names?</p>
+        </div>
+        <div class="modal-footer">
+          <a href="/reset" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+          <a href="/greetings/database" class="modal-close waves-effect waves-green btn-flat">Disagree</a>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+</body>

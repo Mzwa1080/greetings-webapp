@@ -1,0 +1,32 @@
+<title>Greetings</title>
+
+<body class="cyan lighten-1">
+  <div class="container ">
+
+    <table class="row">
+
+      <ul class="collapsible white">
+        <li>
+          <div class="collapsible-header center">
+            <i class="material-icons center"></i> {{name}}
+            <span class="new badge green">{{display}}</span></div>
+          <div class="collapsible-body center bold">
+            <p>"{{name}}" has been greeted {{display}} time(s)</p>
+          </div>
+        </li>
+      </ul>
+    </table>
+
+
+    <form class="" action="/greetings" method="post">
+      <button class="btn waves-effect green accent-4"><i class="fas fa-home"></i> </button>
+    </form>
+
+    <form class="" action="/greetings/database" method="get">
+      <button class="btn waves-effect green accent-4" href=""><i class="small  material-icons">arrow_back</i></button>
+
+    </form>
+
+  </div>
+
+</body>

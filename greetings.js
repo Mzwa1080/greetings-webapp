@@ -31,6 +31,10 @@ module.exports = function (pool){
      let users = await pool.query("select * from users");
      return users.rows;
    }
+ async function users(name){
+   let displayUsers = await pool.query("select * from users where name=$1", [name]);
+   return displayUsers.rows;
+ }
 
    async function reset(){
      let reset = await pool.query("delete from users");
@@ -41,6 +45,7 @@ module.exports = function (pool){
      greet,
      greetCounter,
      reset,
+     users,
      returnUsers
    }
  }
