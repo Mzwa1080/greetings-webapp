@@ -7,7 +7,7 @@ const pg = require("pg");
 const Pool = pg.Pool;
 
 let greetings = require('./greetings');
-
+let Routes = require('./routes')
 let app = express();
 
 app.use(session({
@@ -39,54 +39,20 @@ const pool = new Pool({
 });
 
 let greetingsInstance = greetings(pool);
+let routes = Routes(greetingsInstance);
 
 app.engine('handlebars', expressHandlebars({defaultLayout: 'links'}));
 app.set('view engine', 'handlebars');
 
-app.get('/', async function(req,res){
-			let count = await greetingsInstance.greetCounter();
-			// console.log(greetingsInstance.greetCounter());
+app.get('/', routes.home);
 
-			res.render('greet', {count})
-});
+app.post('/greetings', routes.setting);
 
-app.post('/greetings', async function(req, res){
-// -----GO TO HTML ----
-    let text  = req.body.textInput;
-		let radio = req.body.language;
+app.get('/greetings/database', routes.database);
 
-    if(text == "" || text == undefined){
-      req.flash("info", "Please enter your name!");
-    } else if(!radio){
-      req.flash("info", "Please select a language!");
-    }
+app.get('/counter/:user_name', routes.greetedNames);
 
-		var results = {
-			greeting: await greetingsInstance.greet(text, radio),
-			count: await greetingsInstance.greetCounter()
-		}
-
-    res.render('greet', results);
-});
-
-app.get('/greetings/database', async function(req,res){
-let users = await greetingsInstance.returnUsers();
-		res.render('db', {users});
-});
-
-app.get('/counter/:user_name', async function(req, res){
-  let name = req.params.user_name;
-  let person = await greetingsInstance.users(name);
-  let display = person[0].counter;
-
-  res.render('counter',{name, display});
-})
-
-app.get('/reset', async function(req, res){
-	 await greetingsInstance.reset()
-
-		res.render('db');
-});
+app.get('/reset', routes.reset);
 
 // let PORT = process.env.PORT || 3030;
 let PORT = process.env.PORT || 3080;

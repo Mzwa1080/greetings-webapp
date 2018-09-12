@@ -39,12 +39,14 @@ module.exports = function (pool){
      let reset = await pool.query("delete from users");
      return reset.rowCount;
    }
-
+   
    return{
      greet,
      greetCounter,
      reset,
      users,
      returnUsers
+
+     // -----FOR  ROUTES----
    }
  }
