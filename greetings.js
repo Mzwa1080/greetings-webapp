@@ -1,5 +1,4 @@
 module.exports = function (pool){
-
    async function greet(personName, language){
      if(personName !== "" && language !== undefined){
       var foundUsers = await pool.query("select * from users where name=$1", [personName.toUpperCase()]);
@@ -39,7 +38,7 @@ module.exports = function (pool){
      let reset = await pool.query("delete from users");
      return reset.rowCount;
    }
-   
+
    return{
      greet,
      greetCounter,

@@ -37,7 +37,7 @@ const pool = new Pool({
   connectionString,
   ssl: useSSL
 });
-
+// -------------Instances------------
 let greetingsInstance = greetings(pool);
 let routes = Routes(greetingsInstance);
 
